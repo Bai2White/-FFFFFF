@@ -24,6 +24,7 @@
       margin-top: 10px;
       opacity: .8;
       box-shadow: 12px 12px 12px rgba(0,0,0,.8);
+      animation: sc2 2s;
     }
     header h1 {
       color: white;
@@ -41,9 +42,26 @@
       background: url(../img/pattern-zebra.png) repeat-x;
     }
     .demo-img{
+      animation: sc 1.2s;
       margin: 0 auto;
       display: block;
       margin: 0 auto;
+    }
+    @keyframes sc2 {
+      from {
+        transform: translateY(-100%);
+      }
+      to {
+        transform: translateY(0);
+      }
+    }
+    @keyframes sc {
+      from {
+        transform: scale3d(0,0,0);
+      }
+      to {
+        transform: scale3d(1,1,1);
+      }
     }
   </style>
 </head>
