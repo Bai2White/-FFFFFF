@@ -47,6 +47,93 @@
       display: block;
       margin: 0 auto;
     }
+    .text-content {
+      margin: 0 auto;
+      width: 50%;
+      text-align: right;
+    }
+    .text-content p {
+      padding: 20px;
+      color: #999;
+      font-style: italic;
+    }
+    .btn-group {
+      margin: 0 auto;
+      width: 50%;
+    }
+    .btn-group .hand img {
+      float: right;
+      width: 36px;
+      height: 36px;
+      margin-top: 8px;
+       margin-right: 10px;
+    }
+    .btn-group a {
+      float: right;
+    }
+    .button {
+      width: 9.5em;
+      display: block;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ie-border-radius: 6px;
+      border-radius: 6px;
+      padding: .48em .8em;
+      text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
+      font-size: 18px;
+      font-weight: 700;
+      -webkit-transition-property: background-color;
+      -webkit-transition-duration: .15s;
+      -webkit-transition-timing-function: ease-in-out;
+      cursor: pointer;
+      text-decoration: none;
+      margin-bottom: 20px;
+    }
+    .lightbg-orange {
+      background-color: #e65440;
+      color: #ffdada;
+      -webkit-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
+      -moz-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
+      -ie-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
+      box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
+    }
+    .button span {
+      vertical-align: middle;
+    }
+    .icon {
+      width: 26px;
+      height: 26px;
+      -webkit-border-radius: 13px;
+      -moz-border-radius: 13px;
+      -ie-border-radius: 13px;
+      border-radius: 13px;
+      background: rgba(0,0,0,.3);
+      float: right;
+      -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+      -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+      -ie-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+      box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
+    }
+    .arrow {
+      margin: 7px 0px 0 8px;
+      -webkit-border-style: solid;
+      -moz-border-style: solid;
+      -ie-border-style: solid;
+      border-style: solid;
+      border-width: 6px 6px 6px 12px;
+      width: 0;
+      height: 0;
+    }
+    .lightbg-orange .arrow {
+      border-color: transparent transparent transparent #ea624a;
+    }
+    .clearfix:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
     @keyframes sc2 {
       from {
         transform: translateY(-100%);
@@ -73,6 +160,20 @@
     </h1>
   </header>
   <img class="demo-img" src="../img/man.gif" alt="">
+  <div class="text-content">
+    <p>不想学前端的后端不是好全栈，Javascript是世界上最好的语言 ----- Mr.拷贝老司机</p>
+  </div>
+  <div class="btn-group">
+    <a href="#" class="button lightbg-orange clearfix">
+      <span>开启教程</span>
+      <div class="icon">
+        <div class="arrow"></div>
+      </div>
+    </a>
+    <div class="hand">
+      <img src="../img/hand.png" alt="">
+    </div>
+  </div>
   <div class="content">
     <ul>
       <li></li>
