@@ -150,6 +150,27 @@
         transform: scale3d(1,1,1);
       }
     }
+    @keyframes shake {
+        0%,to {
+            transform: translateZ(0)
+        }
+
+        10%,30%,50%,70%,90% {
+            transform: translate3d(-10px,0,0)
+        }
+
+        20%,40%,60%,80% {
+            transform: translate3d(10px,0,0)
+        }
+    }
+
+    .shake {
+        animation-name: shake;
+        animation-duration: 4s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+    }
+
   </style>
 </head>
 <body>
@@ -171,7 +192,7 @@
       </div>
     </a>
     <div class="hand">
-      <img src="../img/hand.png" alt="">
+      <img  class="shake" src="../img/hand.png" alt="">
     </div>
   </div>
   <div class="content">
