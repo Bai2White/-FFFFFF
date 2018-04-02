@@ -5,235 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>后台学习ES6/ES7指北</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-    body,html {
-      width: 100%;
-      height: 100%;
-    }
-    header {
-      background: #000;
-      padding: 0px 0;
-      width: 50%;
-      min-width: 960px;
-      overflow: hidden;
-      margin: 0 auto;
-      border-radius: 10px;
-      margin-top: 10px;
-      opacity: .8;
-      box-shadow: 12px 12px 12px rgba(0,0,0,.8);
-      animation: sc2 2s;
-    }
-    header h1 {
-      color: white;
-      margin: 25px 0;
-      font-size: 4em;
-      font-family: '华文新魏','微软雅黑';
-      line-height: 1;
-      position: relative;
-      text-align: center;
-    }
-    header h1 span {
-      position: absolute;
-      width: 100%;
-      height: 50px;
-      background: url(../img/pattern-zebra.png) repeat-x;
-    }
-    .demo-img{
-      animation: sc 1.2s;
-      margin: 0 auto;
-      display: block;
-      margin: 0 auto;
-    }
-    .text-content {
-      margin: 0 auto;
-      width: 50%;
-      min-width: 960px;
-      text-align: right;
-    }
-    .text-content p {
-      padding: 20px;
-      color: #999;
-      font-style: italic;
-      position: relative;
-    }
-    .text-content p::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      animation: pmove 5.5s;
-      position: absolute;
-      top: 0;
-      background: #fff;
-    }
-    .btn-group {
-      margin: 0 auto;
-      width: 50%;
-      min-width: 960px;
-      animation: pmove2 17.5s;
-    }
-    .btn-group .hand img {
-      float: right;
-      width: 36px;
-      height: 36px;
-      margin-top: 6px;
-      margin-right: 10px;
-    }
-    .btn-group a {
-      float: right;
-    }
-    .button {
-      width: 9.5em;
-      display: block;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      -ie-border-radius: 6px;
-      border-radius: 6px;
-      padding: .48em .8em;
-      text-shadow: rgba(0,0,0,.5) 0px -1px 0px;
-      font-size: 18px;
-      font-weight: 700;
-      -webkit-transition-property: background-color;
-      -webkit-transition-duration: .15s;
-      -webkit-transition-timing-function: ease-in-out;
-      cursor: pointer;
-      text-decoration: none;
-      margin-bottom: 20px;
-    }
-    .lightbg-orange {
-      background-color: #e65440;
-      color: #ffdada;
-      -webkit-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
-      -moz-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
-      -ie-box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
-      box-shadow: 0px 0px 0px 1px #b24132 inset, 0px 0px 0px 2px #ea624a inset, 0px 4px 0px 0px #a53c2e, 0px 5px 0px 0px #7e2e23, 0px 8px 0px 0px rgba(0,0,0,.15);
-    }
-    .button span {
-      vertical-align: middle;
-    }
-    .icon {
-      width: 26px;
-      height: 26px;
-      -webkit-border-radius: 13px;
-      -moz-border-radius: 13px;
-      -ie-border-radius: 13px;
-      border-radius: 13px;
-      background: rgba(0,0,0,.3);
-      float: right;
-      -webkit-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
-      -moz-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
-      -ie-box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
-      box-shadow: 0px 3px 0px 0px rgba(0,0,0,.2) inset, 0px 0px 0px 1px rgba(255,255,255,.2);
-    }
-    .arrow {
-      margin: 7px 0px 0 8px;
-      -webkit-border-style: solid;
-      -moz-border-style: solid;
-      -ie-border-style: solid;
-      border-style: solid;
-      border-width: 6px 6px 6px 12px;
-      width: 0;
-      height: 0;
-    }
-    .lightbg-orange .arrow {
-      border-color: transparent transparent transparent #ea624a;
-    }
-    .clearfix:after {
-      content: ".";
-      visibility: hidden;
-      display: block;
-      height: 0;
-      clear: both;
-    }
-    @keyframes sc2 {
-      from {
-        transform: translateY(-100%);
-      }
-      to {
-        transform: translateY(0);
-      }
-    }
-    @keyframes sc {
-      from {
-        transform: scale3d(0,0,0);
-      }
-      to {
-        transform: scale3d(1,1,1);
-      }
-    }
-    @keyframes shake {
-        0%,to {
-            transform: translateZ(0)
-        }
-
-        10%,30%,50%,70%,90% {
-            transform: translate3d(-10px,0,0)
-        }
-
-        20%,40%,60%,80% {
-            transform: translate3d(10px,0,0)
-        }
-    }
-    @keyframes pmove {
-        from {
-            transform: translateX(-100%);
-        }
-
-        to {
-            transform: translateX(0);
-        }
-    }
-
-  @keyframes pmove2 {
-        from {
-          opacity: 0;
-        }
-
-        to {
-          opacity: 1;
-        }
-    }
-
-    .shake {
-        animation-name: shake;
-        animation-duration: 4s;
-        animation-fill-mode: both;
-        animation-iteration-count: infinite;
-    }
-
-  </style>
+  <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-  <header>
-    <h1>
-      <span></span>  
-      后台学习ES6/ES7指北
-    </h1>
-  </header>
-  <img class="demo-img" src="../img/man.gif" alt="">
-  <div class="text-content">
-    <p>不想学前端的后端不是好全栈，Javascript是世界上最好的语言 ----- Mr.拷贝老司机</p>
-  </div>
-  <div class="btn-group">
-    <a href="#" class="button lightbg-orange clearfix">
-      <span>开启教程</span>
-      <div class="icon">
-        <div class="arrow"></div>
+  <div id="first">
+    <header>
+        <h1>
+          <span></span>  
+          后台学习ES6/ES7指北
+        </h1>
+      </header>
+      <img class="demo-img" src="../img/man.gif" alt="">
+      <div class="text-content">
+        <p>不想学前端的后端不是好全栈，Javascript是世界上最好的语言 ----- Mr.拷贝老司机</p>
       </div>
-    </a>
-    <div class="hand">
-      <img  class="shake" src="../img/hand.png" alt="">
-    </div>
+      <div class="btn-group">
+        <a class="button lightbg-orange clearfix">
+          <span>开启教程</span>
+          <div class="icon">
+            <div class="arrow"></div>
+          </div>
+        </a>
+        <div class="hand">
+          <img  class="shake" src="../img/hand.png" alt="">
+        </div>
+      </div>
+      <div class="content">
+        <ul>
+          <li></li>
+        </ul>
+      </div>
+      <footer></footer>
   </div>
-  <div class="content">
-    <ul>
-      <li></li>
-    </ul>
+  <div id="loading">
+    <div class="container">
+        <div class="gearbox">
+        <div class="overlay"></div>
+          <div class="gear one">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear two">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear three">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="gear four large">
+            <div class="gear-inner">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+        <h1>Loading...</h1>
+      </div>      
   </div>
-  <footer></footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script>
+    $('.lightbg-orange').on('click', function(){
+      $('#first').css({'transform': 'scale(0)'});
+      $('#loading').fadeIn();
+      $('body').css({background: '#333'});
+      setTimeout(function(){
+        $('#loading').fadeOut();
+        $('body').css({background: 'none'});
+      },3000);
+    });
+  </script>
 </body>
 </html>
