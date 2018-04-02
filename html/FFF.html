@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,87 +8,341 @@
   <title>后台学习ES6/ES7指北</title>
   <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
   <div id="first">
     <header>
-        <h1>
-          <span></span>  
-          后台学习ES6/ES7指北
-        </h1>
-      </header>
-      <img class="demo-img" src="../img/man.gif" alt="">
-      <div class="text-content">
-        <p>不想学前端的后端不是好全栈，Javascript是世界上最好的语言 ----- Mr.拷贝老司机</p>
-      </div>
-      <div class="btn-group">
-        <a class="button lightbg-orange clearfix">
-          <span>开启教程</span>
-          <div class="icon">
-            <div class="arrow"></div>
-          </div>
-        </a>
-        <div class="hand">
-          <img  class="shake" src="../img/hand.png" alt="">
+      <h1>
+        <span></span>
+        后台学习ES6/ES7指北
+      </h1>
+    </header>
+    <img class="demo-img" src="../img/man.gif" alt="">
+    <div class="text-content">
+      <p>不想学前端的后端不是好全栈，Javascript是世界上最好的语言 ----- Mr.拷贝老司机</p>
+    </div>
+    <div class="btn-group">
+      <a class="button lightbg-orange clearfix">
+        <span>开启教程</span>
+        <div class="icon">
+          <div class="arrow"></div>
         </div>
+      </a>
+      <div class="hand">
+        <img class="shake" src="../img/hand.png" alt="">
       </div>
-      <div class="content">
-        <ul>
-          <li></li>
-        </ul>
-      </div>
-      <footer></footer>
+    </div>
+    <div class="content">
+      <ul>
+        <li></li>
+      </ul>
+    </div>
+    <footer></footer>
   </div>
   <div id="loading">
     <div class="container">
-        <div class="gearbox">
+      <div class="gearbox">
         <div class="overlay"></div>
-          <div class="gear one">
-            <div class="gear-inner">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-            </div>
-          </div>
-          <div class="gear two">
-            <div class="gear-inner">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-            </div>
-          </div>
-          <div class="gear three">
-            <div class="gear-inner">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-            </div>
-          </div>
-          <div class="gear four large">
-            <div class="gear-inner">
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-              <div class="bar"></div>
-            </div>
+        <div class="gear one">
+          <div class="gear-inner">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
           </div>
         </div>
-        <h1>Loading...</h1>
-      </div>      
+        <div class="gear two">
+          <div class="gear-inner">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div class="gear three">
+          <div class="gear-inner">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+        <div class="gear four large">
+          <div class="gear-inner">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+          </div>
+        </div>
+      </div>
+      <h1>Loading...</h1>
+    </div>
+  </div>
+  <div id="learn" :style="{height: height}" :class="{'learn': index !== 0}">
+    <div>
+      <img v-if="searchWord" style="height:450px;" class="animal" src="../img/animal.png" alt="">
+      <audio id="audio" controls="controls" v-if="searchWord">
+        <source src="../audio/Space.mp3" type="audio/mpeg">
+      </audio>
+      <img style="width:100%;height:240px;" v-if="!searchWord" src="../img/es6.jpeg" alt="">
+    </div>
+    <div class="flex" v-if="searchWord">
+      <div class="sea">
+        <input class="search" type="text" :value="searchWord" @keyup.enter="search">
+        <img src="../img/查找.png" alt="">
+      </div>
+    </div>
+    <div v-if="!searchWord">
+      <div v-if="index === 0">
+        <h1 class="h1">-引言-</h1>
+        <p>
+          ECMAScript 6.0（以下简称 ES6）是 JavaScript 语言的下一代标准，已经在 2015 年 6 月正式发布了。它的目标，是使得 JavaScript 语言可以用来编写复杂的大型应用程序，成为企业级开发语言
+        </p>
+        <p>
+          ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现（另外的 ECMAScript 方言还有 Jscript 和 ActionScript）。日常场合，这两个词是可以互换的。
+        </p>
+        <p>
+          ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 JavaScript 的下一代标准，涵盖了 ES2015、ES2016、ES2017 等等，而 ES2015 则是正式名称，特指该年发布的正式版本的语言标准。
+        </p>
+        <div class="flex">
+          <button class="btn-style" @click="next">前往目录</button>
+        </div>
+      </div>
+      <div style="padding-top: 40px;" class="menu" :class="{'poa': index !== 0 && index !== 1}" v-if="index !== 0">
+        <ol style="list-style: none;">
+          <li @click="handleMenu(2)">
+            <p class="no-text-indent">
+              <a target="_blank">箭头函数（Arrow Functions）</a>
+            </p>
+          </li>
+          <li @click="handleMenu(3)">
+            <p class="no-text-indent">
+              <a>Promises</a>
+            </p>
+          </li>
+          <li @click="handleMenu(4)">
+            <p class="no-text-indent">
+              <a>异步函数（Async Functions）</a>
+            </p>
+          </li>
+          <li @click="handleMenu(5)">
+            <p class="no-text-indent">
+              <a>解构（Destructuring）</a>
+            </p>
+          </li>
+          <li @click="handleMenu(6)">
+            <p class="no-text-indent">
+              <a>默认和剩余参数（Default and Rest Parameters）</a>
+            </p>
+          </li>
+          <li @click="handleMenu(7)">
+            <p class="no-text-indent">
+              <a>其他（Other）</a>
+            </p>
+          </li>
+        </ol>
+      </div>
+      <div v-if="index === 2" class="pat">
+        <p>简而言之，箭头函数就是丢掉了关键字&nbsp;function，然后用一个箭头&nbsp;=&gt;&nbsp;来分离一个匿名函数的参数部分和函数体：</p>
+        <pre class="prettyprint hljs lisp">(<span class="hljs-name">x</span>, y) =&gt; x * y<span class="hljs-comment">;</span></pre>
+        <p>这相当于:</p>
+        <pre class="prettyprint hljs lua"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x, y)</span></span>{
+    <span class="hljs-keyword">return</span> x * y;
+}</pre>
+        <p>或者:</p>
+        <pre class="prettyprint hljs dart">(x, y) =&gt; {
+    <span class="hljs-keyword">var</span> factor = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">var</span> growth = (x-y) * factor;
+}</pre>
+        <p>完全等价于:</p>
+        <pre class="prettyprint hljs php"><span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(x, y)</span></span>{
+    <span class="hljs-keyword">var</span> factor = <span class="hljs-number">5</span>;
+    <span class="hljs-keyword">var</span> growth = (x-y) * factor;
+}</pre>
+        <p>在使用传统的匿名函数时，箭头函数还消除了一个关键的错误源，即函数内的&nbsp;this&nbsp;对象的值。使用箭头函数，this&nbsp;是基于词法绑定，这仅仅是意味着它的值被绑定到父级作用域的一种奇特的方式，并且永远不会改变。如果一个箭头函数定义在一个自定义对象&nbsp;countup&nbsp;中，this&nbsp;值毫无疑问地指向&nbsp;countup。比如：</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-keyword">var</span> countup = {
+    <span class="hljs-attr">counter</span>: <span class="hljs-number">15</span>,
+
+    <span class="hljs-attr">start</span>:<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+        <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">'click'</span>, () =&gt; {
+            alert(<span class="hljs-keyword">this</span>.counter) <span class="hljs-comment"></span>
+    }
+};
+
+countup.start();
+</pre>
+      </div>
+      <div v-if="index === 3" class="pat">
+        <p>JavaScript ES6 Promises 使异步任务的处理方式变成线性， 这是大多数现代Web应用程序中的一项任务。 而不是依靠回调函数 —— 通过JavaScript框架（如jQuery）普及。JavaScript Promises
+          使用一个中心直观的机制来跟踪和响应异步事件。它不仅使调试异步代码变得更容易，而且使得编写它也是一种乐趣。
+        </p>
+        <p>所有 JavaScript Promise 都是通过&nbsp;Promise()&nbsp;构造函数开始和结束:</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-keyword">const</span> mypromise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+          <span class="hljs-comment">// 在这编写异步代码</span>
+          <span class="hljs-comment">// 调用 resolve() 来表示任务成功完成</span>
+          <span class="hljs-comment">// 调用 reject() 来表示任务失败</span>
+        })</pre>
+        <p>在内部使用&nbsp;resolve()&nbsp;和&nbsp;reject()&nbsp;方法，当一个 Promise 被完成或拒绝时，我们可以分别向一个 Promise 对象发出信号。&nbsp;then()&nbsp;与&nbsp;catch()&nbsp;方法随后可以被调用，用以处理完成或拒绝
+          Promise 后的工作。</p>
+      </div>
+      <div v-if="index === 4" class="pat">
+        <p>除了 JavaScript Promise，异步函数进一步重写了传统的异步代码结构，使其更具可读性。每当我向客户展示带有async 编程功能的代码时，第一个反应总是令人惊讶，随之而来的是了解它是如何工作的好奇心。</p>
+        <p>一个异步函数由两部分构成:</p>
+        <p>1) 一个以&nbsp;async&nbsp;为前缀的常规函数</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchdata</span>(<span class="hljs-params">url</span>)</span>{
+            <span class="hljs-comment">// Do something</span>
+            <span class="hljs-comment">// Always returns a promise</span>
+        }</pre>
+        <p>2) 在异步函数（Async function）内，使用&nbsp;await&nbsp;关键字调用异步操作函数</p>
+        <p>一个例子胜过千言万语。下面是基于上面示例重写的 Promise，以便使用&nbsp;Async functions代替：</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getasync</span>(<span class="hljs-params">url</span>) </span>{ <span class="hljs-comment">// same as original function</span>
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> {
+                <span class="hljs-keyword">const</span> xhr = <span class="hljs-keyword">new</span> XMLHttpRequest()
+                xhr.open(<span class="hljs-string">"GET"</span>, url)
+                xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText)
+                xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText) xhr.send() })
+        }
+        
+        <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchdata</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">// main Async function</span>
+            <span class="hljs-keyword">var</span> text1 = <span class="hljs-keyword">await</span> getasync(<span class="hljs-string">'test.txt'</span>)
+            <span class="hljs-built_in">console</span>.log(text1)
+            <span class="hljs-keyword">var</span> text2 = <span class="hljs-keyword">await</span> getasync(<span class="hljs-string">'test2.txt'</span>)
+            <span class="hljs-built_in">console</span>.log(text2)
+            <span class="hljs-keyword">var</span> text3 = <span class="hljs-keyword">await</span> getasync(<span class="hljs-string">'test3.txt'</span>)
+            <span class="hljs-built_in">console</span>.log(text3)
+            <span class="hljs-keyword">return</span> <span class="hljs-string">"Finished"</span>
+        }
+        
+        fetchdata().then(<span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span>{
+            <span class="hljs-built_in">console</span>.log(msg) <span class="hljs-comment">// logs "finished" })</span>
+        </pre>
+        <p>上面的例子运行时会输出“test.txt”，“test2.txt”，“test3.txt”，最后是“Finished”。</p>
+        <p>如你所见，在异步函数中，我们把异步函数&nbsp;getasync()&nbsp;当作是同步函数调用 - 没有&nbsp;then()&nbsp;方法或回调函数通知进行下一步。无论何时遇到关键字&nbsp;await，执行都会暂停，直到&nbsp;getasync()&nbsp;解决，然后再转到异步函数中的下一行。结果与纯粹的基于
+          Promise，使用一串&nbsp;then&nbsp;方法的方式一样。
+        </p>
+      </div>
+      <div v-if="index === 5" class="pat">
+        <h3>解构对象</h3>
+        <p>ES6 解构并非一个新功能，而是一个新的赋值语法，可以让您快速解压缩对象属性和数组中的值，并将它们分配给各个变量。</p>
+        <pre class="prettyprint hljs vim">var <span class="hljs-keyword">profile</span> = {name:<span class="hljs-string">'George'</span>, age:<span class="hljs-number">39</span>, hobby:<span class="hljs-string">'Tennis'</span>}
+var {name, hobby} = <span class="hljs-keyword">profile</span> // destructure <span class="hljs-keyword">profile</span> object
+console.<span class="hljs-built_in">log</span>(name) // <span class="hljs-string">"George"</span>
+console.<span class="hljs-built_in">log</span>(hobby) // <span class="hljs-string">"Tennis"</span></pre>
+        <p>这里我用解构快速提取&nbsp;profile&nbsp;对象的&nbsp;name&nbsp;和&nbsp;hobby&nbsp;属性 。</p>
+        <p>使用别名，你可以使用与你正在提取值的对象属性不同的变量名：</p>
+        <pre class="prettyprint hljs groovy">var profile = {<span class="hljs-string">name:</span><span class="hljs-string">'George'</span>, <span class="hljs-string">age:</span><span class="hljs-number">39</span>, <span class="hljs-string">hobby:</span><span class="hljs-string">'Tennis'</span>}
+var {<span class="hljs-string">name:</span>n, <span class="hljs-string">hobby:</span>h} = profile <span class="hljs-comment">// destructure profile object</span>
+console.log(n) <span class="hljs-comment">// "George"</span>
+console.log(h) <span class="hljs-comment">// "Tennis"</span></pre>
+        <h3>解构数组</h3>
+        <p>数组的解构与在对象上的工作方式类似，除了左边的花括号使用方括号代替：</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-keyword">var</span> soccerteam = [<span class="hljs-string">'George'</span>, <span class="hljs-string">'Dennis'</span>, <span class="hljs-string">'Sandy'</span>]
+<span class="hljs-keyword">var</span> [a, b] = soccerteam <span class="hljs-comment">// destructure soccerteam array</span>
+<span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">// "George"</span>
+<span class="hljs-built_in">console</span>.log(b) <span class="hljs-comment">// "Dennis"</span></pre>
+        <p>你可以跳过某些数组元素，通过使用逗号（，）：</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-keyword">var</span> soccerteam = [<span class="hljs-string">'George'</span>, <span class="hljs-string">'Dennis'</span>, <span class="hljs-string">'Sandy'</span>]
+<span class="hljs-keyword">var</span> [a,,b] = soccerteam <span class="hljs-comment">// destructure soccerteam array</span>
+<span class="hljs-built_in">console</span>.log(a) <span class="hljs-comment">// "George"</span>
+<span class="hljs-built_in">console</span>.log(b) <span class="hljs-comment">// "Sandy"</span></pre>
+      </div>
+      <div v-if="index === 6" class="pat">
+        <p>ES6中的 Rest Parameters 使得将函数参数转换成数组的操作变得简单。</p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addit</span>(<span class="hljs-params">...theNumbers</span>)</span>{
+  <span class="hljs-comment">// get the sum of the array elements</span>
+    <span class="hljs-keyword">return</span> theNumbers.reduce(<span class="hljs-function">(<span class="hljs-params">prevnum, curnum</span>) =&gt;</span> prevnum + curnum, <span class="hljs-number">0</span>) 
+}
+
+addit(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>) <span class="hljs-comment">// returns 10</span>
+</pre>
+        <p>通过在命名参数前添加3个点&nbsp;...，在该位置和之后输入到函数中的参数将自动转换为数组。</p>
+        <p> 没有 Rest Parameters, 我们不得不做一些复杂的操作比如
+          <a href="http://www.javascriptkit.com/javatutors/arrayprototypeslice.shtml" rel="nofollow,noindex" target="_blank">手动将参数转换为数组</a> ： </p>
+        <pre class="prettyprint hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addit</span>(<span class="hljs-params">theNumbers</span>)</span>{
+    <span class="hljs-comment">// force arguments object into array</span>
+    <span class="hljs-keyword">var</span> numArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>) 
+    <span class="hljs-keyword">return</span> numArray.reduce(<span class="hljs-function">(<span class="hljs-params">prevnum, curnum</span>) =&gt;</span> prevnum + curnum, <span class="hljs-number">0</span>)
+}
+
+addit(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>) <span class="hljs-comment">// returns 10</span></pre>
+      </div>
+      <div v-if="index === 7" class="menu pat">
+        <ol style="list-style: none;">
+          <li>
+            <p class="no-text-indent">
+              <a>Class定义类</a>
+            </p>
+          </li>
+          <li>
+            <p class="no-text-indent">
+              <a>Generator函数</a>
+            </p>
+          </li>
+          <li>
+            <p class="no-text-indent">
+              <a>字符串模版</a>
+            </p>
+          </li>
+          <li>
+              <p class="no-text-indent">
+                <a>更多......</a>
+              </p>
+            </li>
+        </ol>
+      </div>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script>
-    $('.lightbg-orange').on('click', function(){
-      $('#first').css({'transform': 'scale(0)'});
+    $('.lightbg-orange').on('click', function () {
+      $('#first').css({
+        'transform': 'scale(0)'
+      });
       $('#loading').fadeIn();
-      $('body').css({background: '#333'});
-      setTimeout(function(){
+      $('body').css({
+        background: '#333'
+      });
+      setTimeout(function () {
         $('#loading').fadeOut();
-        $('body').css({background: 'none'});
-      },3000);
+        $('body').css({
+          background: 'none'
+        });
+        setTimeout(function () {
+          $('#learn').css({
+            height: '40px'
+          });
+          $('body').css({
+            background: 'RGBA(230, 230, 230, 1.00)'
+          });
+          $('#audio').attr('autoplay', 'autoplay');
+          $('#learn').css('height', '600px');
+          document.getElementById('audio').play();
+        }, 0)
+      }, 2000);
     });
+    new Vue({
+      el: '#learn',
+      data: {
+        searchWord: '什么是Es6?和javascript的关系是什么?',
+        height: '0',
+        index: 0,
+      },
+      methods: {
+        search() {
+          this.searchWord = null;
+          this.height = '650px';
+        },
+        next() {
+          this.index = 1;
+        },
+        handleMenu(i) {
+          this.index = i;
+          this.height = "auto";
+        }
+      }
+    })
   </script>
 </body>
+
 </html>

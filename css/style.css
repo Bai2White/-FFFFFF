@@ -69,7 +69,7 @@ header h1 span {
   margin: 0 auto;
   width: 50%;
   min-width: 960px;
-  animation: pmove2 17.5s;
+  animation: pmove2 15.5s;
 }
 .btn-group .hand img {
   float: right;
@@ -460,4 +460,176 @@ h1 {
   font-size: 19px;
   padding-top: 10px;
   text-shadow: 1px 1px 0px #111;
+}
+
+
+#learn {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  margin-left: -360px;
+  width: 720px;
+  height: 0;
+  overflow: hidden;
+  transition: all .5s;
+  border: 0;
+  box-sizing: border-box;
+  box-shadow: 5px 5px 5px RGBA(203, 203, 203, 1.00);
+  background: #fff;
+  margin-bottom: 40px;
+}
+
+.animal {
+  width: 100%;
+}
+
+#audio {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+}
+
+.search {
+  width:  90%;
+  height: 10px;
+  margin: 0 auto;
+  border-radius: 3px;
+  outline: none;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  transition: all .3s;
+  color: #ccc;
+}
+
+
+.h1 {
+  font-family: "Helvetica";
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+  font-size: 19px;
+  padding-top: 10px;
+  text-shadow: none;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+.sea {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 80%;
+  position: relative;
+  height: 32px;
+}
+.sea img {
+  position: absolute;
+  top: 3.5px;
+  right: 45px;
+  width: 25px;
+  height: 25px;
+}
+
+.sea:hover input {
+  box-shadow: 2px 2px 2px #ddd;
+  font-size: 14px;
+  color: #333;
+}
+
+p {
+  padding: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.btn-style {
+  width: 100px;
+  height: 30px;
+  background: RGBA(107, 120, 250, 1.00);
+  color: #fff;
+  border-radius: 3px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: width .3s;
+}
+.btn-style:hover {
+  width: 120px;
+  font-size: 14px;
+}
+
+.learn {
+  overflow: initial !important;
+}
+
+.menu {
+  position: relative;
+  transition: .5s;
+  left: 0;
+  min-height: 300px;
+}
+.menu li{
+  transition: .5s;
+}
+.poa {
+  position: absolute;
+  left: -200px;
+}
+.poa ol {
+
+}
+.poa li {
+  background: RGBA(107, 120, 250, 1.00);
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  cursor: pointer;
+  transition: all .3s;
+}  
+.poa li:hover {
+  background: #555;
+}
+.poa li:hover p {
+  font-size: 14px;
+}
+.poa li:first-child {
+  border-top-left-radius: 5px;
+}
+.poa li:last-child {
+  border-bottom: 0;
+  border-bottom-left-radius: 5px;
+}
+.poa p {
+  width: 180px;
+  padding-left: 10px;
+  padding-right: 10px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  text-align: right;
+  font-size: 13px;
+  transition: all .3s;
+}
+li {
+  cursor: pointer;
+}
+pre {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+  padding-right: 50px;
+  background-color: #333;
+  color: #fff;
+}
+.pat {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+h3 {
+  padding-left: 30px;
+  padding-top: 10px;
+  
 }
