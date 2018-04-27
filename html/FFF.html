@@ -34,7 +34,7 @@
     </div>
     <div class="content">
       <ul>
-        <li></li>
+        <li>22</li>
       </ul>
     </div>
     <footer></footer>
@@ -202,7 +202,7 @@ countup.start();
                 xhr.onload = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> resolve(xhr.responseText)
                 xhr.onerror = <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> reject(xhr.statusText) xhr.send() })
         }
-        
+
         <span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fetchdata</span>(<span class="hljs-params"></span>)</span>{ <span class="hljs-comment">// main Async function</span>
             <span class="hljs-keyword">var</span> text1 = <span class="hljs-keyword">await</span> getasync(<span class="hljs-string">'test.txt'</span>)
             <span class="hljs-built_in">console</span>.log(text1)
@@ -212,7 +212,7 @@ countup.start();
             <span class="hljs-built_in">console</span>.log(text3)
             <span class="hljs-keyword">return</span> <span class="hljs-string">"Finished"</span>
         }
-        
+
         fetchdata().then(<span class="hljs-function">(<span class="hljs-params">msg</span>) =&gt;</span>{
             <span class="hljs-built_in">console</span>.log(msg) <span class="hljs-comment">// logs "finished" })</span>
         </pre>
@@ -250,7 +250,7 @@ console.log(h) <span class="hljs-comment">// "Tennis"</span></pre>
         <p>ES6中的 Rest Parameters 使得将函数参数转换成数组的操作变得简单。</p>
         <pre class="prettyprint hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addit</span>(<span class="hljs-params">...theNumbers</span>)</span>{
   <span class="hljs-comment">// get the sum of the array elements</span>
-    <span class="hljs-keyword">return</span> theNumbers.reduce(<span class="hljs-function">(<span class="hljs-params">prevnum, curnum</span>) =&gt;</span> prevnum + curnum, <span class="hljs-number">0</span>) 
+    <span class="hljs-keyword">return</span> theNumbers.reduce(<span class="hljs-function">(<span class="hljs-params">prevnum, curnum</span>) =&gt;</span> prevnum + curnum, <span class="hljs-number">0</span>)
 }
 
 addit(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>) <span class="hljs-comment">// returns 10</span>
@@ -260,7 +260,7 @@ addit(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<spa
           <a href="http://www.javascriptkit.com/javatutors/arrayprototypeslice.shtml" rel="nofollow,noindex" target="_blank">手动将参数转换为数组</a> ： </p>
         <pre class="prettyprint hljs javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">addit</span>(<span class="hljs-params">theNumbers</span>)</span>{
     <span class="hljs-comment">// force arguments object into array</span>
-    <span class="hljs-keyword">var</span> numArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>) 
+    <span class="hljs-keyword">var</span> numArray = <span class="hljs-built_in">Array</span>.prototype.slice.call(<span class="hljs-built_in">arguments</span>)
     <span class="hljs-keyword">return</span> numArray.reduce(<span class="hljs-function">(<span class="hljs-params">prevnum, curnum</span>) =&gt;</span> prevnum + curnum, <span class="hljs-number">0</span>)
 }
 
